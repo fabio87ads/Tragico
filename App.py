@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
-app.secret_key = 'many random bytes'
 
 app.config['MYSQL_HOST'] = 'mysql669.umbler.com'
 app.config['MYSQL_PORT'] = 41890
