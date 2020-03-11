@@ -23,9 +23,6 @@ def Index():
     data = cur.fetchall()
     cur.close()
 
-
-
-
     return render_template('index2.html', produtos=data )
 
 
@@ -37,9 +34,11 @@ def insert():
         flash("Produto Adicionado Com Sucesso")
         nome = request.form['nome']
         codigo = request.form['codigo']
+        preco = request.form['preco']
         descricao = request.form['descricao']
+
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO produtos (nome, codigo, descricao) VALUES (%s, %s, %s)", (nome, codigo, descricao))
+        cur.execute("INSERT INTO produtos (nome, codigo, preco,descricao) VALUES (%s,%s, %s, %s)", (nome, codigo,preco, descricao))
         mysql.connection.commit()
         return redirect(url_for('Index'))
 
@@ -65,13 +64,14 @@ def update():
         id_data = request.form['id']
         nome = request.form['nome']
         codigo = request.form['codigo']
+        preco = request.form['preco']
         descricao = request.form['descricao']
         cur = mysql.connection.cursor()
         cur.execute("""
                UPDATE produtos
-               SET nome=%s, codigo=%s, descricao=%s
+               SET nome=%s, codigo=%s, preco=%s, descricao=%s 
                WHERE id=%s
-            """, (nome, codigo, descricao, id_data))
+            """, (nome, codigo, preco,descricao, id_data))
         flash("Produto atualizado com sucesso")
         mysql.connection.commit()
         return redirect(url_for('Index'))
