@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>Tela login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    body
+{   
+	margin:0px;
+	padding: 0px;
+	background:url("https://image.freepik.com/fotos-gratis/conceito-de-ressurreicao-crucificacao-de-jesus-cristo-cruz-ao-por-do-sol_1150-7201.jpg")no-repeat;
+	webkit-background-size: cover;
+    background-size: cover;
+    font-family: Tahoma,sans-serif;
+}
+
+.form-area
+{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width:400px;
+	box-sizing: border-box;
+	background:rgba(0,0,0,0.5);
+	padding: 40px; 
+}
+
+h2
+{
+	margin:0px;
+	padding: 0 0 20px;
+	font-weight: bold;
+	color: #ffffff;
+
+}
+
+.form-area p
+{
+	margin:0px;
+	padding: 0px;
+	font-weight: bold;
+	color: #ffffff ;
+}
+
+.form-area input,select
+{
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.form-area input[type=text],
+.form-area input[type=password]
+{
+	border:none;
+	border-bottom: 1px solid #ffffff;
+	background-color: transparent;
+	outline: none;
+	height: 40px;
+	color: #ffffff;
+	display: 16px;
+}
+
+::placeholder
+{
+	color: #ffffff;
+}
+
+.form-area select
+{
+	margin-top: 20px;
+	padding: 10px 0;
+}
+
+.form-area input[type=button]
+{
+	border:none;
+	height: 40px;
+	outline: none;
+	color: #ffffff;
+	font-size: 15px;
+	background-color: tomato;
+	cursor:pointer;
+	border-radius: 20px;
+}
+
+.form-area input[type=button]:hover
+{
+	background-color: cyan;
+	color: #ffffff;
+}
+
+.form-area a
+{
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+}</style>
+</head>
+<body>
+
+    <div class="form-area">
+    	<h2>Tela de acesso Tragico</h2>
+    	<form action="">
+    		<p>Email:</p>
+    		<input type="text" name="" placeholder="Email">
+
+    		<p>Senha:</p>
+    		<input type="password" name="" placeholder="Senha">
+
+    	
+
+    		<input type="button" name="" value="Logar" id="myButton" onclick="Redirecionar()"  >
+
+    		<a href="">Esqueceu sua senha?</a>
+    	</form>
+    </div>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+     function Redirecionar() {
+        window.location.href = "http://127.0.0.1:5000/";
+    };
+</script>

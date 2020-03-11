@@ -78,7 +78,10 @@ def update():
 
 
 
-
+@app.route('/login')
+def Login():
+  
+    return render_template('login.html' )
 
 
 
