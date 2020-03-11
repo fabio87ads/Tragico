@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 
-
-
 app = Flask(__name__)
 app.secret_key = 'many random bytes'
 
@@ -15,7 +13,6 @@ app.config['MYSQL_DB'] = 'tragicocrud'
 mysql = MySQL(app)
 
 
-
 @app.route('/')
 def Index():
     cur = mysql.connection.cursor()
@@ -26,10 +23,8 @@ def Index():
     return render_template('index2.html', produtos=data )
 
 
-
 @app.route('/insert', methods = ['POST'])
 def insert():
-
     if request.method == "POST":
         flash("Produto Adicionado Com Sucesso")
         nome = request.form['nome']
@@ -42,9 +37,6 @@ def insert():
         mysql.connection.commit()
         return redirect(url_for('Index'))
 
-
-
-
 @app.route('/delete/<string:id_data>', methods = ['GET'])
 def delete(id_data):
     flash("Produto foi excluído com sucesso")
@@ -53,13 +45,8 @@ def delete(id_data):
     mysql.connection.commit()
     return redirect(url_for('Index'))
 
-
-
-
-
 @app.route('/update',methods=['POST','GET'])
 def update():
-
     if request.method == 'POST':
         id_data = request.form['id']
         nome = request.form['nome']
@@ -76,16 +63,10 @@ def update():
         mysql.connection.commit()
         return redirect(url_for('Index'))
 
-
-
 @app.route('/login')
 def Login():
   
     return render_template('login.html' )
-
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
